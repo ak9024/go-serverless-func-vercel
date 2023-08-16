@@ -17,5 +17,6 @@ func TestIndex(t *testing.T) {
 	assert.Equal(t, http.StatusOK, resp.StatusCode)
 	body, err := io.ReadAll(resp.Body)
 	assert.Nil(t, err)
+	assert.Equal(t, "application/json", resp.Header["Content-Type"][0])
 	t.Log(string(body))
 }
