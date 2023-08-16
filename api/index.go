@@ -19,11 +19,11 @@ type Response struct {
 }
 
 func Handler(w http.ResponseWriter, r *http.Request) {
-	c := gochatgptsdk.NewConfig(gochatgptsdk.Config{
+	gpt := gochatgptsdk.NewConfig(gochatgptsdk.Config{
 		OpenAIKey: os.Getenv("OPENAI_API_KEY"),
 	})
 
-	resp, err := c.ImagesGenerations(gochatgptsdk.ModelImages{
+	resp, err := gpt.ImagesGenerations(gochatgptsdk.ModelImages{
 		Prompt: "Generate random images",
 		N:      2,
 		Size:   gochatgptsdk.Size256,
