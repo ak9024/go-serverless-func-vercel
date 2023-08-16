@@ -8,16 +8,6 @@ import (
 	gochatgptsdk "github.com/ak9024/go-chatgpt-sdk"
 )
 
-type Error struct {
-	StatusCode int    `json:"status_code"`
-	Message    string `json:"message"`
-}
-
-type Response struct {
-	StatusCode int                                                     `json:"status_code"`
-	Data       *gochatgptsdk.ModelImagesResponse[gochatgptsdk.DataURL] `json:"data"`
-}
-
 func Handler(w http.ResponseWriter, r *http.Request) {
 	gpt := gochatgptsdk.NewConfig(gochatgptsdk.Config{
 		OpenAIKey: os.Getenv("OPENAI_API_KEY"),
