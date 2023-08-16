@@ -25,6 +25,8 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 
 	resp, err := c.ImagesGenerations(gochatgptsdk.ModelImages{
 		Prompt: "Generate random images",
+		N:      2,
+		Size:   gochatgptsdk.Size256,
 	})
 	if err != nil {
 		json.NewEncoder(w).Encode(Error{
